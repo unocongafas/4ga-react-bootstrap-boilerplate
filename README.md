@@ -235,6 +235,25 @@
 24. Instalamos React.
 
     ```bash
-    npm i react react-dom prop-types
+    npm install react react-dom
+    npm i react react-dom
     ```
 
+25. Instalamos Boostrap, jQuery y popper.js.
+
+    ```bash
+    npm install bootstrap jquery popper.js
+    npm i bootstrap jquery popper.js
+    ```
+
+26. Añadimos bootstrap en nuestro fichero main.js
+
+    ```js
+    import "bootstrap";
+    ```
+
+26. Añadimos bootstrap en nuestro fichero style.css
+
+    ```css
+    @import "~bootstrap/dist/css/bootstrap.min.css";
+    ```
