@@ -301,7 +301,7 @@ Proyecto base para trabajar con webpack
     import "bootstrap";
     ```
 
-26. Añadimos bootstrap en nuestro fichero style.css
+28. Añadimos bootstrap en nuestro fichero style.css
 
     ```css
     @import "~bootstrap/dist/css/bootstrap.min.css";
