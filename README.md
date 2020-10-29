@@ -116,19 +116,24 @@ Proyecto base para trabajar con webpack
 
     var HtmlWebpackPlugin = require('html-webpack-plugin');
 
+    const [schema, host] = process.env.GITPOD_WORKSPACE_URL.split('://')
+    const publicUrl = `3000-${host}`
+
     module.exports = {
       entry: './src/main.js',
       output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.bundle.js'
+        filename: 'main.bundle.js',
+        sourceMapFilename: '[name].js.map'
       },
+      devtool: "source-map",
       module: {
           rules: [{
             test: /\.css$/,
             use: [ 'style-loader', 'css-loader' ]
         }]
       },
-      plugins: [new HtmlWebpackPlugin({template: 'src/index.html'})]
+      plugins: [new HtmlWebpackPlugin({ template: 'src/index.html', base: publicUrl, publicPath: '/' })]
     };
     ```
 
@@ -208,7 +213,7 @@ Proyecto base para trabajar con webpack
                 use: [ 'style-loader', 'css-loader' ]
             }]
         },
-        plugins: [new HtmlWebpackPlugin({template: 'src/index.html'})]
+        plugins: [new HtmlWebpackPlugin({ template: 'src/index.html', base: publicUrl, publicPath: '/' })]
     };
     ```
 
@@ -277,7 +282,7 @@ Proyecto base para trabajar con webpack
                 use: ['style-loader', 'css-loader']
             }]
         },
-        plugins: [new HtmlWebpackPlugin({ template: 'src/index.html' })]
+        plugins: [new HtmlWebpackPlugin({ template: 'src/index.html', base: publicUrl, publicPath: '/' })]
     };
     ```
 
